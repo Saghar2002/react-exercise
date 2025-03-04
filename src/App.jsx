@@ -24,7 +24,7 @@ function App() {
        }>
        {isOn ? "Turn Off" : "Turn On"}</button>
        <Stepper></Stepper>
-       <List></List>
+       {/* <List></List> */}
        <Form></Form>
     </div>    
   )
