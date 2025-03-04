@@ -62,6 +62,7 @@ export const Form = () => {
              onChange={(e) => 
               setFormData({ ...formData, description: e.target.value})
              }
+             textareaStyle=" bg-gray-100 placeholder:text-sm rounded p-1 mb-2 border-solid border border-gray-400"
             />
          </div>
          <div>
