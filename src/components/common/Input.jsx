@@ -5,6 +5,7 @@ export const Input = ({
     type = 'text' ,
     inputStyle ,
     label = 'label' ,
+    inputError ,
     ...props  
 }) => {
     
@@ -18,6 +19,7 @@ export const Input = ({
         placeholder={placeholder}
         {...props}
        />
+       <p className="text-red-500 text-sm">{inputError}</p>
     </div>
   )
 }

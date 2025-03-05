@@ -15,15 +15,49 @@ export const Form = () => {
       id: new Date().getTime(),
     });
 
+    const [productNameError , setProductNameError] = useState("");
+
+    const submitForm = (e) => {
+      e.preventDefault();
+      if(formData.price < 100000){
+        alert("باید مبلغ بیشتر از 100000 باشد.");
+        return ;
+      }
+
+      if(!formData.productName.length){
+        setProductNameError("نام محصول اجباری است.");
+        return;
+      }
+      console.log(formData)
+      resetForm();
+    }
+
+
+    const resetForm = () => {
+      setFormData({
+        productName: "",
+        discount: "",
+        tags: "",
+        price: "",
+        description: "",
+        id: new Date().getTime(),
+      });
+      setProductNameError("");
+    };
     
   return (
-    <form className="mt-4 mb-20 bg-white dark:bg-gray-800 rounded-md p-7">
+    <form onSubmit={submitForm}
+    className="mt-4 mb-20 bg-white dark:bg-gray-800 rounded-md p-7">
        <div className="grid grid-cols-2 grid-rows-1">
          <div>
           <Input 
               placeholder="Product Name"
               label="Product Name" 
-              inputStyle="border border-solid border-gray-400"
+              inputStyle={`bg-gray-100 placeholder:text-sm rounded p-1 mb-2 border-solid border ${
+                productNameError ? "border-red-400" : "border-gray-400"
+              }`}
+  
+              inputError={productNameError}
               value = {formData.productName} 
               onChange = {(e) => 
                 setFormData({ ...formData , productName: e.target.value})}
@@ -31,7 +65,7 @@ export const Form = () => {
           <Input 
               placeholder="Discount"
               label="Discount" 
-              inputStyle="border border-solid border-gray-400"
+              inputStyle="bg-gray-100 placeholder:text-sm rounded p-1 mb-2 border-solid border border-gray-400"
               value = {formData.discount} 
               onChange = {(e) => 
                 setFormData({ ...formData , discount: e.target.value})}
@@ -39,7 +73,7 @@ export const Form = () => {
           <Input 
               placeholder="Tags"
               label="Tags" 
-              inputStyle="border border-solid border-gray-400"
+              inputStyle="bg-gray-100 placeholder:text-sm rounded p-1 mb-2 border-solid border border-gray-400"
               value = {formData.tags} 
               onChange = {(e) => 
                 setFormData({ ...formData , tags: e.target.value})}
