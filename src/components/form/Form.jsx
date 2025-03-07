@@ -3,7 +3,7 @@ import { Input } from "../common/Input"
 import Button from "../common/Button"
 import {Textarea} from "../common/Textarea"
 
-export const Form = () => {
+export const Form = ({items , setItems}) => {
 
     // const [productName , setProductName] = useState ();
     const [formData , setFormData] = useState({
@@ -28,7 +28,9 @@ export const Form = () => {
         setProductNameError("نام محصول اجباری است.");
         return;
       }
+
       console.log(formData)
+      setItems([ ...items , formData])
       resetForm();
     }
 
