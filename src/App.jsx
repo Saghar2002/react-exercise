@@ -5,6 +5,7 @@ import { List } from "./components/list/List";
 import { Form } from "./components/form/Form";
 import { ProductList } from "./components/productList/ProductList";
 import { Card } from "./components/common/Card";
+import { Timer } from "./components/timer/Timer";
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
 
   return (
     <div className="bg-gray-200 rounded-lg p-4">
+      <Timer></Timer>
       {/* <div>helooo</div>
       <div>zeinabbb</div>
       <div>sagharrr</div> */}
