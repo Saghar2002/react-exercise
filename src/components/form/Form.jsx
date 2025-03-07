@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Input } from "../common/Input"
 import Button from "../common/Button"
 import {Textarea} from "../common/Textarea"
+import { Card } from "../common/Card"
 
 export const Form = ({items , setItems}) => {
 
@@ -48,9 +49,9 @@ export const Form = ({items , setItems}) => {
     };
     
   return (
-    <form onSubmit={submitForm}
-    className="mt-4 mb-20 bg-white dark:bg-gray-800 rounded-md p-7">
-       <div className="grid grid-cols-2 grid-rows-1">
+    <form onSubmit={submitForm}>
+      <Card>
+      <div className="grid grid-cols-2 grid-rows-1">
          <div>
           <Input 
               placeholder="Product Name"
@@ -110,6 +111,7 @@ export const Form = ({items , setItems}) => {
           />
         </div>
        </div>
+      </Card>
     </form>
   )
 }

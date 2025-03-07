@@ -13,7 +13,7 @@ function App() {
   const [items , setItems] = useState([]);
 
   return (
-    <div className="bg-white rounded-lg p-4">
+    <div className="bg-gray-200 rounded-lg p-4">
       {/* <div>helooo</div>
       <div>zeinabbb</div>
       <div>sagharrr</div> */}
