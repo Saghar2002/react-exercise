@@ -1,5 +1,6 @@
 import { useState } from "react"
 import Button from "../common/Button";
+import { Card } from "../common/Card";
 
 export const List = () => {
     const [item , setItem] = useState({name: 'Saghar'});
@@ -16,7 +17,7 @@ export const List = () => {
         setItems([...items , count])
     }
   return (
-    <div className="my-4 bg-white dark:bg-gray-800 rounded-md p-7">
+    <Card className="my-4 bg-white dark:bg-gray-800 rounded-md p-7">
         <Button title="Click"
         buttonStyle="p-3 rounded bg-blue-700 text-white border-solid"
         buttonClick={() => handleClick()}/>
@@ -30,6 +31,6 @@ export const List = () => {
                 <li key={item}>{item}</li>
             ))}
         </ul>
-    </div>
+    </Card>
   )
 }

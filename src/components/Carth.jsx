@@ -3,7 +3,7 @@ import { IoMoon } from 'react-icons/io5'
 import { IoSunny } from 'react-icons/io5'
 
 
-export const Card = () => {
+export const Carth = () => {
 
   const [dark , setDark] = useState(false);
   const darkModeHandler = () => {

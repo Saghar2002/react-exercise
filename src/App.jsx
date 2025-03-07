@@ -1,11 +1,10 @@
-import { Card } from "./components/Card"
-
-
+import { Carth } from "./components/Carth"
 import { useState } from "react"
 import { Stepper } from "./components/stepper/Stepper";
 import { List } from "./components/list/List";
 import { Form } from "./components/form/Form";
 import { ProductList } from "./components/productList/ProductList";
+import { Card } from "./components/common/Card";
 
 function App() {
 
@@ -18,7 +17,7 @@ function App() {
       {/* <div>helooo</div>
       <div>zeinabbb</div>
       <div>sagharrr</div> */}
-      <Card></Card>
+      <Carth></Carth>
        
        <button onClick={onHandleToggle} className={
         isOn ? "bg-blue-200 text-black rounded p-2"
@@ -26,7 +25,7 @@ function App() {
        }>
        {isOn ? "Turn Off" : "Turn On"}</button>
        <Stepper />
-       {/* <List /> */}
+       <List />
        <Form items={items} setItems={(items) => setItems(items)}/>
        <ProductList items={items}/>
     </div>    

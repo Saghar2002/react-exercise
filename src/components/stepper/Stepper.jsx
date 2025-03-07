@@ -1,5 +1,6 @@
 import { useState } from "react"
 import Button from "../common/Button"
+import { Card } from "../common/Card"
 
 export const Stepper = () => {
   const buttonStyle = "bg-blue-200 py-2 px-7 rounded text-black border-solid border"
@@ -15,7 +16,7 @@ export const Stepper = () => {
       step < 3 && setStep ( step + 1 );
     }
   return (
-    <div className="my-4 bg-white dark:bg-gray-800 rounded-md p-7">
+    <Card >
         <div className="flex gap-10 items-center justify-center">
             <Button buttonStyle= {step >= 1 ? buttonActiveStyle : buttonStyle} buttonClick={() => changeStep(1)} title="مرحله اول"/>
             <Button buttonStyle= {step >= 2 ? buttonActiveStyle : buttonStyle} buttonClick={() => changeStep(2)} title="مرحله دوم"/>
@@ -32,6 +33,6 @@ export const Stepper = () => {
             next();
           }}/>
         </div>
-    </div>
+    </Card>
   )
 }
