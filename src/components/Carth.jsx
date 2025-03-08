@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { IoMoon } from 'react-icons/io5'
 import { IoSunny } from 'react-icons/io5'
 
@@ -6,6 +6,19 @@ import { IoSunny } from 'react-icons/io5'
 export const Carth = () => {
 
   const [dark , setDark] = useState(false);
+
+  useEffect(() => {
+    const darkMode= localStorage.getItem("dark");
+    if(!dark){
+      setDark(darkMode);
+    }
+  } , [dark])
+
+  useEffect(() => {
+    localStorage.setItem("dark" , dark)
+  } , [])
+
+
   const darkModeHandler = () => {
     setDark(!dark);
     document.body.classList.toggle("dark");

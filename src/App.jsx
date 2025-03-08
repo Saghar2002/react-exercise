@@ -9,6 +9,7 @@ import { Timer } from "./components/timer/Timer";
 import { Resize } from "./components/resize/Resize";
 import { TitleChanger } from "./components/titleChanger/TitleChanger";
 import { LocalStorage } from "./components/localStorage/LocalStorage";
+import ConditionalRendering from "./components/conditionalRendering/ConditionalRendering";
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
 
   return (
     <div className="bg-gray-200 rounded-lg p-4">
+      <ConditionalRendering></ConditionalRendering>
       <LocalStorage></LocalStorage>
       <TitleChanger></TitleChanger>
       <Resize></Resize>
