@@ -7,6 +7,7 @@ import { ProductList } from "./components/productList/ProductList";
 import { Card } from "./components/common/Card";
 import { Timer } from "./components/timer/Timer";
 import { Resize } from "./components/resize/Resize";
+import { TitleChanger } from "./components/titleChanger/TitleChanger";
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
 
   return (
     <div className="bg-gray-200 rounded-lg p-4">
+      <TitleChanger></TitleChanger>
       <Resize></Resize>
       <Timer></Timer>
       {/* <div>helooo</div>
