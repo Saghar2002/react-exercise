@@ -3,6 +3,8 @@ import {useState} from 'react'
 const ConditionalRendering = () => {
     const [isLoggedIn , setIsLoggedIn] = useState(true);
     const [productState , setProductState] = useState("pending");
+    const [isAdmin] = useState(false);
+    const [isMember] = useState(false);
 
     // product state : error - pending - success
 
@@ -27,37 +29,47 @@ const ConditionalRendering = () => {
 
   //  
  
-  switch(productState) {
-    case "error" : 
-    return (
-        <div className='bg-white rounded p-3'>
-            <h3>Error</h3>
-        </div>
-    );
+//   switch(productState) {
+//     case "error" : 
+//     return (
+//         <div className='bg-white rounded p-3'>
+//             <h3>Error</h3>
+//         </div>
+//     );
 
-    case "pending" :
-        return (
-            <div className='bg-blue-400 rounded p-3'>
-                <h3>Pending</h3>
-                <p>وضعیت موجود</p>
-            </div>
-        );
+//     case "pending" :
+//         return (
+//             <div className='bg-blue-400 rounded p-3'>
+//                 <h3>Pending</h3>
+//                 <p>وضعیت موجود</p>
+//             </div>
+//         );
 
-    case "success" :
-        return (
-            <div className='bg-green-400 rounded p-3'>
-                <h3>Success</h3>
-                <p>با موفقیت انجام شد</p>
-            </div>
-        );    
+//     case "success" :
+//         return (
+//             <div className='bg-green-400 rounded p-3'>
+//                 <h3>Success</h3>
+//                 <p>با موفقیت انجام شد</p>
+//             </div>
+//         );    
         
-    default :     
-    return (
-            <div className=" bg-gray-400 rounded p-3">
-                <p>در انتظار تعیین وضعیت</p>
-            </div>
-            );
-  }
+//     default :     
+//     return (
+//             <div className=" bg-gray-400 rounded p-3">
+//                 <p>در انتظار تعیین وضعیت</p>
+//             </div>
+//             );
+//   }
+
+      return(
+        <div>
+            {(() => {
+                if(isAdmin) return <p>Admin</p>;
+                if(isMember) return <p>Member</p>;
+                return <p>Hello Guest!</p>
+            })()}
+        </div>
+      )
 
 }
 
