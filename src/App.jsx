@@ -8,6 +8,7 @@ import { Card } from "./components/common/Card";
 import { Timer } from "./components/timer/Timer";
 import { Resize } from "./components/resize/Resize";
 import { TitleChanger } from "./components/titleChanger/TitleChanger";
+import { LocalStorage } from "./components/localStorage/LocalStorage";
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
 
   return (
     <div className="bg-gray-200 rounded-lg p-4">
+      <LocalStorage></LocalStorage>
       <TitleChanger></TitleChanger>
       <Resize></Resize>
       <Timer></Timer>
