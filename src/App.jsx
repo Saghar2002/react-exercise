@@ -6,6 +6,7 @@ import { Form } from "./components/form/Form";
 import { ProductList } from "./components/productList/ProductList";
 import { Card } from "./components/common/Card";
 import { Timer } from "./components/timer/Timer";
+import { Resize } from "./components/resize/Resize";
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
 
   return (
     <div className="bg-gray-200 rounded-lg p-4">
+      <Resize></Resize>
       <Timer></Timer>
       {/* <div>helooo</div>
       <div>zeinabbb</div>
