@@ -10,6 +10,7 @@ import { Resize } from "./components/resize/Resize";
 import { TitleChanger } from "./components/titleChanger/TitleChanger";
 import { LocalStorage } from "./components/localStorage/LocalStorage";
 import ConditionalRendering from "./components/conditionalRendering/ConditionalRendering";
+import UseReducerPage from "./components/pages/hooks/useReducer/UseReducerPage";
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
 
   return (
     <div className="bg-gray-200 rounded-lg p-4">
+      <UseReducerPage></UseReducerPage>
       <ConditionalRendering></ConditionalRendering>
       <LocalStorage></LocalStorage>
       <TitleChanger></TitleChanger>
