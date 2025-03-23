@@ -11,6 +11,7 @@ import { TitleChanger } from "./components/titleChanger/TitleChanger";
 import { LocalStorage } from "./components/localStorage/LocalStorage";
 import ConditionalRendering from "./components/conditionalRendering/ConditionalRendering";
 import UseReducerPage from "./components/pages/hooks/useReducer/UseReducerPage";
+import { PostPage } from "./components/posts/PostPage";
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
 
   return (
     <div className="bg-gray-200 rounded-lg p-4">
+     <PostPage></PostPage>
       <UseReducerPage></UseReducerPage>
       <ConditionalRendering></ConditionalRendering>
       <LocalStorage></LocalStorage>

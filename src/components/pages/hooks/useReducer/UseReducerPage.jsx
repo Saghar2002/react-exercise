@@ -36,10 +36,18 @@ function reducer (state , action) {
     }
 }
 
+// const initialState = {
+//     name : "" , 
+//     email : "" 
+// };
+
+
 const UseReducerPage = () => {
 
 //   const [state , dispath] = useReducer(reducer , {count : 0})
 const [state , dispatch] = useReducer(reducer , initialState)
+
+// const [state , dispatch] = useReducer(reducer , initialState)
 
 
   return (
@@ -75,8 +83,8 @@ const [state , dispatch] = useReducer(reducer , initialState)
         />
         <h3>List :</h3>
 
-        <ul>
-            {state.cards.map((item , index) => (
+         <ul>
+             {state.cards.map((item , index) => (
                 <li key={index}>
                 {item}
                 <Button 
