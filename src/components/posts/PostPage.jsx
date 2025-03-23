@@ -18,37 +18,37 @@ function reducer (state,action){
  }
 }
 
-export const PostPage = () => {
-
-  const [state , dispatch] = useReducer( reducer , initialState);  
-
-  useEffect(() => {
-    dispatch({ type : "fetchStart"}); 
-    fetch("https://jsonplaceholder.typicode.com/posts/1")
-    .then((res) => res.json())
-    .then((data) => dispatch({ type : "fetchSuccess" , data: data }))
-    .catch((error) => dispatch({ type: "fetchError" , error }));
-  } , []);
-
-
-  if (state.loading) return <p>Loading...</p>;
-  if (state.error) return <p>Error : {state.error.message}</p>;
-  return <div>{state.data?.title}</div>;
-  
-};
-
 // export const PostPage = () => {
-//     const [state, dispatch] = useReducer(reducer, initialState);
+
+//   const [state , dispatch] = useReducer( reducer , initialState);  
+
+//   useEffect(() => {
+//     dispatch({ type : "fetchStart"}); 
+//     fetch("https://jsonplaceholder.typicode.com/posts/1")
+//     .then((res) => res.json())
+//     .then((data) => dispatch({ type : "fetchSuccess" , data: data }))
+//     .catch((error) => dispatch({ type: "fetchError" , error }));
+//   } , []);
+
+
+//   if (state.loading) return <p>Loading...</p>;
+//   if (state.error) return <p>Error : {state.error.message}</p>;
+//   return <div>{state.data?.title}</div>;
   
-//     useEffect(() => {
-//       dispatch({ type: "fetchStart" });
-//       fetch("https://jsonplaceholder.typicode.com/posts/1")
-//         .then((res) => res.json())
-//         .then((data) => dispatch({ type: "fetchSuccess", data }))
-//         .catch((error) => dispatch({ type: "fetchError", error }));
-//     }, []);
+// };
+
+export const PostPage = () => {
+    const [state, dispatch] = useReducer(reducer, initialState);
   
-//     if (state.loading) return <p>Loading ...</p>;
-//     if (state.error) return <p>Error: {state.error.message}</p>;
-//     return <div>{state.data?.title}</div>;
-//   };
+    useEffect(() => {
+      dispatch({ type: "fetchStart" });
+      fetch("https://jsonplaceholder.typicode.com/posts/1")
+        .then((res) => res.json())
+        .then((data) => dispatch({ type: "fetchSuccess", data }))
+        .catch((error) => dispatch({ type: "fetchError", error }));
+    }, []);
+  
+    if (state.loading) return <p>Loading ...</p>;
+    if (state.error) return <p>Error: {state.error.message}</p>;
+    return <div>{state.data?.title}</div>;
+  };
