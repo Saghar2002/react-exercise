@@ -13,6 +13,7 @@ import ConditionalRendering from "./components/conditionalRendering/ConditionalR
 import UseReducerPage from "./components/pages/hooks/useReducer/UseReducerPage";
 import { PostPage } from "./components/posts/PostPage";
 import UseRef from "./components/pages/hooks/useReducer/UseRef";
+import Usememo from "./components/pages/hooks/useReducer/Usememo";
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
 
   return (
     <div className="bg-gray-200 rounded-lg p-4">
+      <Usememo></Usememo>
       <UseRef></UseRef>
       <PostPage></PostPage>
       <UseReducerPage></UseReducerPage>
