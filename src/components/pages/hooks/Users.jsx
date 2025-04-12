@@ -29,12 +29,14 @@ if(users){
         <h3>Users List:</h3>
         <div className='grid gap-3 grid-cols-3'>
             {users.map((user) => (
+          <Link key={user.id} to={`/User/${user.id}`}>
              <div className="p-5 rounded shadow-md bg-white">
                 <img src={user.avatar} alt="avatar" />
                 <p>{user.first_name}</p>
                 <p>{user.last_name}</p>
                 <p>{user.email}</p>
-            </div>
+             </div>
+          </Link>
             ))}
         </div>
       </div>
