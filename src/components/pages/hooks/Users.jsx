@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 
 export const Users = () => {
 
     const [users, setUsers] = useState();
+    const [searchParams , setSearchParams] = useSearchParams();
+    const [pageQuery , setPageQuery] = useState(searchParams.get("page"));
+    const [paginationData , setPageinationData] = useState();
 
 
     useEffect(() => {
@@ -16,11 +19,21 @@ export const Users = () => {
             params: {page: pageNumber} ,
         })
         .then((res) => {
-            console.log(res)
+            console.log(res);
+            setSearchParams({ page : pageNumber || 1});
+            setPageQuery(pageNumber);
             setUsers(res.data.data);
+            setPageinationData({
+                total : res.data.total,
+                per_page : res.data.per_page,
+            });
         });
     }
 
+
+    const handlePageClick = (pageNumber) => {
+        fetchUsers(pageNumber);
+    };
 
 
 if(users){
@@ -39,7 +52,25 @@ if(users){
           </Link>
             ))}
         </div>
+        <div className="w-full flex justify-center items-center">
+            {Array.from(
+                {
+                    length: paginationData.total / paginationData.per_page,
+                },
+                (item, index) => (
+                    <button
+                    className="rounded mx-4 mt-2 p-4 bg-blue-500 text-white font-bold"
+                    key={index}
+                    onClick={() => handlePageClick(index + 1)}
+                    >
+                        {index + 1}
+                    </button>
+                )
+            )}
+        </div>
       </div>
-    )
+    );
+} else {
+    return <p>Loading ...</p>
 }
-}
+};
