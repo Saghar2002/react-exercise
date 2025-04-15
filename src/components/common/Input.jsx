@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export const Input = ({
+export  const Input = ({
     placeholder = 'placeholder..' , 
     type = 'text' ,
     inputStyle ,

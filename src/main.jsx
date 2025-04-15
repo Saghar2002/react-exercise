@@ -6,6 +6,7 @@ import App from './App.jsx'
 import { createBrowserRouter , RouterProvider } from 'react-router-dom'
 import { Users } from './components/pages/hooks/Users.jsx'
 import  User  from './components/pages/hooks/User.jsx'
+import { AddUser } from './components/pages/hooks/AddUser.jsx'
 // import { BrowserRouter , Routes , Route} from 'react-router-dom'
 
 const router = createBrowserRouter([
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
   {
     path: "/user/:userId",
     element: <User />,
+  },
+  {
+    path: "/AddUser",
+    element: <AddUser />,
   }
 ])
 
