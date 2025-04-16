@@ -16,6 +16,7 @@ import UseRef from "./components/pages/hooks/useReducer/UseRef";
 import Usememo from "./components/pages/hooks/useReducer/Usememo";
 import { Link } from "react-router-dom";
 import { AddUser } from "./components/pages/hooks/AddUser";
+import { PostComments } from "./components/pages/hooks/PostComments";
 function App() {
 
   const [isOn , setIsOn] = useState(false);
@@ -28,6 +29,7 @@ function App() {
       <Link to="/users">
       <button className="bg-purple-600 text-slate-200 p-2 m-2">برو به صفحه کاربران</button>
       </Link>
+      <PostComments></PostComments>
       <AddUser></AddUser>
       <Usememo></Usememo>
       <UseRef></UseRef>

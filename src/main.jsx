@@ -7,6 +7,7 @@ import { createBrowserRouter , RouterProvider } from 'react-router-dom'
 import { Users } from './components/pages/hooks/Users.jsx'
 import  User  from './components/pages/hooks/User.jsx'
 import { AddUser } from './components/pages/hooks/AddUser.jsx'
+import { PostComments } from './components/pages/hooks/PostComments.jsx'
 // import { BrowserRouter , Routes , Route} from 'react-router-dom'
 
 const router = createBrowserRouter([
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
   {
     path: "/AddUser",
     element: <AddUser />,
+  },
+  {
+    path: "/PostComments",
+    element: <PostComments />,
   }
 ])
 
