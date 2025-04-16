@@ -4,31 +4,78 @@ import Button from "../../common/Button";
 import {Input} from "../../common/Input";
 import { useNavigate } from "react-router-dom";
 
-
 export const AddUser = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    job: "",
+  });
 
-    const [formData , setFormData] = useState({
-        name: "",
-        job: "",
-    });
-    const [error , setError] = useState();
-    const navigate = useNavigate();
+  const [error, setError] = useState();
 
-    const submitForm = (e) => {
-        e.preventDefault();
-        axios
-        .post("https://reqres.in/api/register" , formData)
-        .then((res) => {
-            navigate("/users");
-        })
-        .catch((err) => {
-            setError(err);
-        }) 
-    }
+  const navigate = useNavigate();
+
+  // Signal:
+  // const controller = new AbortController();
+  // const signal = controller.signal;
+
+  // cancelToken
+  const CancelToken = axios.CancelToken;
+  const source = CancelToken.source();
+
+  const submitForm = (e) => {
+    e.preventDefault();
+    axios
+      .post("https://reqres.in/api/register", formData, {
+        // signal,
+        cancelToken: source.token,
+      })
+      .then((res) => {
+        //   console.log(res);
+        navigate("/users");
+      })
+      .catch((err) => {
+        // Signal
+        // if (err.name === "AbortError") {
+        //   console.log("Request was Aborted");
+        // } else {
+        //   setError(err);
+        // }
+
+        // CancelToken
+        if (axios.isCancel(thrown)) {
+          console.log("Request canceled", thrown.message);
+        } else {
+          setError(err);
+        }
+      });
+
+    setTimeout(() => {
+      // Signal
+      // controller.abort();
+
+      // CancelToken
+      source.cancel("Operation canceled by the user.");
+    }, 500);
+  };
+  // const submitForm = (e) => {
+  //   e.preventDefault();
+  //   axios
+  //     .post("https://reqres.in/api/users", formData, {
+  //       signal,
+  //     })
+  //     .then((res) => {
+  //       //   console.log(res);
+  //       navigate("/users");
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //       setError(err);
+  //     });
+  // };
 
   return (
     <div>
-        <form onSubmit={submitForm}>
+      <form onSubmit={submitForm}>
         <Input
           placeholder="name"
           label="name"
@@ -57,3 +104,4 @@ export const AddUser = () => {
     </div>
   );
 };
+

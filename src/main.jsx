@@ -27,10 +27,10 @@ const router = createBrowserRouter([
     path: "/AddUser",
     element: <AddUser />,
   },
-  {
-    path: "/PostComments",
-    element: <PostComments />,
-  }
+  // {
+  //   path: "/PostComments",
+  //   element: <PostComments />,
+  // }
 ])
 
 createRoot(document.getElementById('root')).render(

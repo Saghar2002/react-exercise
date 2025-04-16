@@ -29,7 +29,7 @@ function App() {
       <Link to="/users">
       <button className="bg-purple-600 text-slate-200 p-2 m-2">برو به صفحه کاربران</button>
       </Link>
-      <PostComments></PostComments>
+      {/* <PostComments></PostComments> */}
       <AddUser></AddUser>
       <Usememo></Usememo>
       <UseRef></UseRef>
