@@ -12,16 +12,27 @@ const User = () => {
   useEffect(() => {
     fetchUserData();
   }, []);
-  async function fetchUserData() {
+  async function fetchUserData(retryCount = 3) {
     await axios
-      .get(`https://reqres.in/api/users/${userId}`)
+      .get(`https://reqres.in/api/users/${userId}`,{
+        headers: {
+          Accept: "application/json",
+          client_type: "Admin"
+        },
+      })
       .then((res) => {
         setUser(res.data.data);
         setLoading(false);
       })
       .catch((err) => {
+        if (retryCount === 0) {
           setLoading(false);
           setError("خطایی رخ داده است");
+        } else {
+          setTimeout(() => {
+            fetchUserData(retryCount - 1);
+          }, 1000);
+        }
       });
   }
 
