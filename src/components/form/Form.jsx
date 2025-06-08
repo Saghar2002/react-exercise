@@ -34,6 +34,7 @@ export const Form = ({items , setItems}) => {
       setItems([ ...items , formData])
       resetForm();
     }
+  
 
 
     const resetForm = () => {
